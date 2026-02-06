@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Shubham Sharma | Frontend Developer</title>
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --bg-dark: #0f172a;
+            --bg-card: #111827;
+            --text-main: #e5e7eb;
+            --text-muted: #9ca3af;
+
+        }
+
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #020617, #0f172a);
+            color: var(--text-muted);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            height: 80px;
+            padding: 0 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* background: rgb(2, 6, 23); */
+            background: black;
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-top: 2px solid #1e293b;
+            border-bottom: 1px solid #1e293b;
+            border-color: rgba(128, 128, 128, 0.733);
+            /* border-radius: 25px; */
+        }
+
+        .navbar:hover {
+
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: 1px;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 25px;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: .3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            padding: 90px 70px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .hero h3 {
+            margin-top: 15px;
+            max-width: 650px;
+            font-weight: 400;
+            color: #cbd5f5;
+        }
+
+        .hero .cta {
+            margin-top: 30px;
+        }
+
+        .hero .cta a {
+            display: inline-block;
+            padding: 14px 28px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .hero .cta a:hover {
+            background: var(--primary-light);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, .4);
+        }
+
+        /* ABOUT STRIP */
+        .pic {
+            margin: 50px 0px;
+            padding: 50px 0px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            display: flex;
+            justify-content: space-around;
+            gap: 50px;
+            flex-wrap: wrap;
+            align-items: center;
+            border: 1px solid #1e293b;
+        }
+
+        .innerd {
+            width: 300px;
+
+        }
+
+        .innerd p {
+            font-size: 22px;
+        }
+
+        /* ICON SLIDER */
+        .icon-slider {
+
+            overflow: hidden;
+
+        }
+
+        .icon-track {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            animation: slideIcons 6s linear infinite;
+        }
+
+        .icon-track i {
+            font-size: 50px;
+            /* padding:12px; */
+            border-radius: 50%;
+            color: #cbd5e1;
+        }
+
+        @keyframes slideIcons {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-160px);
+            }
+        }
+
+        /* FLIP CARD */
+        .flip-card {
+            width: 260px;
+            height: 320px;
+            perspective: 1000px;
+        }
+
+        .flip-card:hover {
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+        }
+
+        .flip-inner {
+            width: 100%;
+            height: 100%;
+            transition: .8s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-front,
+        .flip-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 18px;
+        }
+
+        .flip-front {
+            background: url(image1111.png) center/cover;
+        }
+
+        .flip-back {
+            background: #020617;
+            color: white;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        /* SKILLS */
+        .skills {
+            padding: 90px 70px;
+        }
+
+        .skill:hover {
+            color: #1e293b;
+            box-shadow: 0 4px 10px rgb(0, 123, 255);
+        }
+
+        .skills h2 {
+            text-align: center;
+            color: white;
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+
+        .skill-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .skill {
+            height: 180px;
+            background: linear-gradient(135deg, #020617, #1e293b);
+            border-radius: 20px;
+            text-align: center;
+            padding: 28px;
+            /* color: white; */
+            border: 1px solid #1e293b;
+            transition: .4s;
+        }
+
+        .skill h3 {
+            font-size: 40px;
+            font-weight: 600;
+            /* margin-bottom: 10px; */
+        }
+
+        .skill i {
+            font-size: 60px;
+            /* margin-bottom: 10px; */
+        }
+
+        .skill:hover {
+            transform: translateY(-8px);
+            /* background: linear-gradient(135deg, #1e3a8a, #2563eb); */
+            background: lightskyblue;
+        }
+
+        /* PROJECTS */
+        .projects {
+            padding: 90px 70px;
+        }
+        .project:hover{
+             box-shadow: 0 4px 10px rgb(0, 123, 255);
+        }
+
+        .projects h2 {
+            text-align: center;
+            color: white;
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+
+        .project-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .project {
+            background: var(--bg-card);
+            /* padding: 30px; */
+            border-radius: 20px;
+            border: 1px solid #1e293b;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: .4s;
+            text-align: center;
+        }
+        .project:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .5);
+            background: lightskyblue;
+            color: var(--bg-card);
+        }
+
+        .project h1 {
+            color: gray;
+        }
+
+        .project p {
+            color: #9ca3af;
+        }
+        .project p:hover{
+            color: #1e293b;
+            font-size:20px;
+        }
+
+        .project a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .project a:hover {
+            text-decoration: underline;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #020617;
+            padding: 50px 30px;
+            text-align: center;
+            border-top: 1px solid #1e293b;
+        }
+
+        footer h3 {
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        .footer-icons {
+            margin: 25px 0;
+        }
+
+        .footer-icons a {
+            color: #9ca3af;
+            font-size: 20px;
+            margin: 0 12px;
+            transition: .3s;
+        }
+
+        .footer-icons a:hover {
+            color: var(--primary);
+        }
+
+        .copy {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:768px) {
+
+            .hero,
+            .skills,
+            .projects {
+                padding: 60px 30px;
+            }
+
+            .navbar {
+                padding: 0 30px;
+            }
+        }
+
+        img {
+            height: 70px;
+            width: 140px;
+            /* background-color: #0f172a; */
+        }
+
+        .project img {
+            height: auto;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="logo"><img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWsVSPfVzgSELm9cX16kBT9tPqG2vFGjv9ww&s"
+                alt=""></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Hi, I'm Shubham Sharma</h1>
+        <h3>Frontend Developer focused on building clean, responsive & professional web interfaces.</h3>
+
+        <div class="cta">
+            <a href="#projects">View My Work</a>
+        </div>
+
+        <div class="pic">
+            <div class="innerd">
+                <div class="icon-slider">
+                    <div class="icon-track">
+                        <i class="fab fa-linkedin"></i>
+                        <i class="fab fa-github"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="innerd">
+                <h2 style="color:white;">About Me</h2>
+                <p>I am Shubham Sharma, a motivated BCA graduate with a strong interest in the IT and web development
+                    field. I have hands-on knowledge of HTML, CSS, JavaScript, and core computer concepts, and I enjoy
+                    building clean, responsive, and user-friendly web interfaces.</p>
+            </div>
+
+            <div class="innerd">
+                <div class="flip-card">
+                    <div class="flip-inner">
+                        <div class="flip-front"></div>
+                        <div class="flip-back">
+                            <h3>Shubham Sharma</h3>
+                            <p>Frontend Developer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills" id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skill-box">
+            <div class="skill">
+                <i class="fa-brands fa-html5"></i>
+                <h3>HTML</h3>
+            </div>
+            <div class="skill">
+                <i class="fa-brands fa-css3-alt"></i>
+                <h3>CSS</h3>
+            </div>
+            <div class="skill">
+                <i class="fa-brands fa-js"></i>
+                <h3>JavaScript</h3>
+            </div>
+            <div class="skill">
+                <i class="fa-brands fa-reacteurope"></i>
+                <h3>React</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+        <h2>My Projects</h2>
+        <div class="project-box">
+            <div class="project">
+                <h1>Amazon Clone</h1>
+
+                <img src="amazone clone image.webp" alt="">
+
+                <p> UI clone using HTML & CSS.</p>
+                <a href="amzone clone.html">View Project</a>
+            </div>
+            <div class="project">
+                <h1>Netflix Clone</h1>
+
+                <img src="nt123.jpeg" alt="">
+
+                <p>Responsive frontend design inspired by Netflix.</p>
+                <a href="netflix clone.html">View Project(1)</a>
+                <a href="new netmirror.html">View Project(2)</a>
+            </div>
+            <div class="project">
+                <h1>Mini Project</h1>
+
+                <img src="mini project.png" alt="">
+
+                <p>Practice project focused on UI interaction.</p>
+                <a href="mini project.html">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <h3>Shubham Sharma</h3>
+        <p>Frontend Developer | India</p>
+
+        <div class="footer-icons">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+        <h3>Contact:7876161812</h3>
+        <p class="copy">© 2025 All Rights Reserved</p>
+    </footer>
+
+</body>
+
+</html>
