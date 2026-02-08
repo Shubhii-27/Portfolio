@@ -8,45 +8,6 @@
     <title>Shubham Sharma | Frontend Developer</title>
 
     <style>
-        /* hamburger hidden on desktop */
-.hamburger{
-    display:none;
-    font-size:28px;
-    color:white;
-    cursor:pointer;
-}
-
-/* MOBILE */
-@media(max-width:320px){
-
-    .nav-links{
-        position:absolute;
-        top:80px;
-        left:0;
-        width:100%;
-        background:#020617;
-        flex-direction:column;
-        text-align:center;
-        max-height:0;
-        overflow:hidden;
-        transition:0.4s;
-    }
-
-    .nav-links a{
-        display:block;
-        padding:15px 0;
-        margin:0;
-    }
-
-    .nav-links.active{
-        max-height:300px;
-    }
-
-    .hamburger{
-        display:block;
-    }
-}
-
         :root {
             --primary: #2563eb;
             --primary-light: #3b82f6;
@@ -110,7 +71,7 @@
             color: var(--text-main);
             text-decoration: none;
             margin-left: 30px;
-            /* font-size: 25px; */
+            font-size: 25px;
             position: relative;
         }
 
@@ -142,7 +103,6 @@
         }
 
         .hero h3 {
-            position: absolute;
             margin-top: 15px;
             max-width: 650px;
             font-weight: 400;
@@ -572,14 +532,6 @@
         <h3>Contact:7876161812</h3>
         <p class="copy">© 2025 All Rights Reserved</p>
     </footer>
-    <script>
-        document.querySelectorAll("#navLinks a").forEach(link=>{
-    link.addEventListener("click",()=>{
-        document.getElementById("navLinks").classList.remove("active");
-    })
-})
-
-    </script>
 
 </body>
 
